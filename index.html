@@ -180,10 +180,13 @@ Pagamento seguro via Pix
 <script>
 
 function copiar(){
-var copyText = document.getElementById("pix");
-copyText.select();
-document.execCommand("copy");
-alert("Chave Pix copiada");
+var texto = document.getElementById("pix").value;
+
+navigator.clipboard.writeText(texto).then(function() {
+alert("Chave Pix copiada com sucesso");
+}, function(err) {
+alert("Erro ao copiar chave Pix");
+});
 }
 
 function gerarPedido(){
