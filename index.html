@@ -156,8 +156,8 @@ Valor: R$50,00
 
 <strong>Chave Pix</strong>
 
-<textarea id="pix" readonly onclick="this.select()" style="width:100%;padding:10px;height:120px;border-radius:6px;border:1px solid #ccc;">
-00020101021226900014br.gov.bcb.pix2568qrcodes.adopay.com.br/v2/qr/cob/67b6818f-8cdd-46ae-877f-3ff4a0a53d895204000053039865802BR5925RLOPES10 COMERCIO DE VARI6009SAO PAULO62070503***6304B673
+<textarea id="pix" readonly onclick="this.select()" style="width:100%;padding:10px;height:140px;border-radius:6px;border:1px solid #ccc;white-space:nowrap;overflow:auto;">
+00020101021226940014br.gov.bcb.pix2572qrcode.cartwavehub.com.br/v2/qr/cob/4b65eb7c-04b3-41fa-9d43-aa62f226faf65204000053039865802BR5925NEXABET RECEBIMENTOS DIGI6009SAO PAULO62070503***63045043
 </textarea>
 
 <button onclick="copiar()">Copiar Chave Pix</button>
@@ -173,7 +173,7 @@ Valor: R$50,00
 </div>
 
 <div class="seguro">
-Após pagamento confirmado o envio será imediato  
+Após a confirmação do pagamento, seu pedido será reativado automaticamente na plataforma, garantindo total suporte, segurança e rastreabilidade Shopee.
 Pagamento seguro via Pix
 </div>
 
@@ -182,7 +182,12 @@ Pagamento seguro via Pix
 <script>
 
 function copiar() {
-var texto = document.getElementById("pix");
+let texto = document.getElementById("pix").value.trim();
+
+navigator.clipboard.writeText(texto).then(function() {
+alert("Chave Pix copiada com sucesso");
+});
+}
 
 texto.select();
 texto.setSelectionRange(0, 99999);
