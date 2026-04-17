@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pagamento Seguro</title>
+
+<style>
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#f6f6f6;
+margin:0;
+padding:0;
+}
+
+.topo{
+background:#ee4d2d;
+color:white;
+padding:15px;
+text-align:center;
+font-weight:bold;
+font-size:18px;
+}
+
+.logo{
+text-align:center;
+margin:15px 0;
+}
+
+.logo img{
+width:120px;
+}
+
+.container{
+max-width:420px;
+margin:0 auto 20px auto;
+background:white;
+border-radius:12px;
+padding:20px;
+box-shadow:0 0 15px rgba(0,0,0,0.08);
+}
+
+.status{
+background:#fff3e0;
+padding:10px;
+border-radius:8px;
+text-align:center;
+font-size:14px;
+margin-bottom:15px;
+color:#e65100;
+font-weight:bold;
+}
+
+.timer{
+background:#ffe0b2;
+padding:10px;
+border-radius:8px;
+text-align:center;
+margin-bottom:15px;
+font-weight:bold;
+}
+
+.info{
+background:#f8f8f8;
+padding:12px;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+.pix-box{
+border:1px solid #ddd;
+padding:10px;
+border-radius:8px;
+margin-top:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+margin-top:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#ee4d2d;
+color:white;
+border:none;
+border-radius:8px;
+margin-top:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.qr{
+text-align:center;
+margin-top:15px;
+}
+
+.qr img{
+width:200px;
+}
+
+.seguro{
+text-align:center;
+font-size:13px;
+color:#666;
+margin-top:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topo">
+Pagamento Seguro
+</div>
+
+<div class="logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg">
+</div>
+
+<div class="container">
+
+<div class="status">
+Pedido reservado aguardando pagamento
+</div>
+
+<div class="timer">
+Tempo restante: <span id="tempo">05:00</span>
+</div>
+
+<div class="info">
+Pedido: <span id="pedido"></span>
+</div>
+
+<div class="info">
+Cliente: Sergio Costa Silva
+</div>
+
+<div class="info">
+Produto: Teste
+</div>
+
+<div class="info">
+Valor: R$1.199,00
+</div>
+
+<div class="pix-box">
+
+<strong>Chave Pix</strong>
+
+<input id="pix" value="00020101021226900014br.gov.bcb.pix2568qrcodes.adopay.com.br/v2/qr/cob/1cc6cd85-0af6-4a13-bfd6-c7f13fcd73645204000053039865802BR5925RLOPES10 COMERCIO DE VARI6009SAO PAULO62070503***630467CB" readonly>
+
+<button onclick="copiar()">Copiar Chave Pix</button>
+
+</div>
+
+<div class="qr">
+
+<p>Ou pague via QR Code</p>
+
+<img src="pix.png.jpeg">
+
+</div>
+
+<div class="seguro">
+Após pagamento confirmado o envio será imediato  
+Pagamento seguro via Pix
+</div>
+
+</div>
+
+<script>
+
+function copiar(){
+var copyText = document.getElementById("pix");
+copyText.select();
+document.execCommand("copy");
+alert("Chave Pix copiada");
+}
+
+function gerarPedido(){
+let numero = Math.floor(Math.random() * 900000000) + 100000000;
+document.getElementById("pedido").innerText = numero;
+}
+
+gerarPedido();
+
+
+let tempo = 300;
+
+function contador(){
+
+let minutos = Math.floor(tempo / 60);
+let segundos = tempo % 60;
+
+document.getElementById("tempo").innerHTML =
+(minutos < 10 ? "0" + minutos : minutos) + ":" +
+(segundos < 10 ? "0" + segundos : segundos);
+
+tempo--;
+
+if(tempo < 0){
+tempo = 0;
+}
+
+}
+
+setInterval(contador,1000);
+
+</script>
+
+</body>
+</html>
