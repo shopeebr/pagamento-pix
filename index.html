@@ -181,19 +181,14 @@ Pagamento seguro via Pix
 <script>
 
 function copiar() {
-let texto = document.getElementById("pix").value.trim();
-
-navigator.clipboard.writeText(texto).then(function() {
-alert("Chave Pix copiada com sucesso");
-});
-}
+var texto = document.getElementById("pix");
 
 texto.select();
 texto.setSelectionRange(0, 99999);
 
 document.execCommand("copy");
 
-alert("Chave Pix copiada");
+alert("Chave Pix copiada com sucesso");
 }
 
 function gerarPedido(){
@@ -202,7 +197,6 @@ document.getElementById("pedido").innerText = numero;
 }
 
 gerarPedido();
-
 
 let tempo = 300;
 
